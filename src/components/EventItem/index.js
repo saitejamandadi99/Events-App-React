@@ -1,14 +1,26 @@
-// Write your code here
 import './index.css'
 
 const EventItem = props => {
-  const {details} = props
-  const {id, imageUrl, name, location, registrationStatus} = details
+  const {details, onClickEvent, isbuttonClicked} = props
+  const {id, imageUrl, name, location} = details
+  const clickedClass = isbuttonClicked ? 'clicked' : '' // Apply 'clicked' class based on prop
+
+  const onClickImage = () => {
+    onClickEvent(id)
+  }
+
   return (
     <li className="eventItem">
-      <img src={imageUrl} alt="event" className="eventImage" />
+      <button
+        type="button"
+        onClick={onClickImage}
+        className={`button ${clickedClass}`}
+      >
+        <img src={imageUrl} alt="event" className="eventImage" />
+      </button>
+
       <div className="eventDetailsContainer">
-        <h1 className="eventItemHeading">{name}</h1>
+        <p className="eventItemHeading">{name}</p>
         <p className="eventItemdesc">{location}</p>
       </div>
     </li>

@@ -1,6 +1,7 @@
 import {Component} from 'react'
 
 import EventItem from '../EventItem'
+import ActiveEventRegistrationDetails from '../ActiveEventRegistrationDetails'
 
 import './index.css'
 
@@ -53,21 +54,46 @@ const eventsList = [
     registrationStatus: 'REGISTRATIONS_CLOSED',
   },
 ]
-// Write your code here
 
 class Events extends Component {
+  state = {
+    activeEventStatus: '',
+    activeEventId: '', // Track the ID of the clicked event
+  }
+
+  onClickEvent = id => {
+    const selectedEvent = eventsList.find(event => event.id === id)
+    if (selectedEvent) {
+      this.setState({
+        activeEventStatus: selectedEvent.registrationStatus,
+        activeEventId: id, // Set the active event's ID
+      })
+    }
+  }
+
   render() {
+    const {activeEventStatus, activeEventId} = this.state
+
     return (
       <div className="eventsContainer">
         <div className="eventsCardsContainer">
           <h1 className="eventHeading">Events</h1>
           <ul className="eventItemListContainer">
             {eventsList.map(eachEvent => (
-              <EventItem key={eachEvent.id} details={eachEvent} />
+              <EventItem
+                key={eachEvent.id}
+                details={eachEvent}
+                onClickEvent={this.onClickEvent}
+                isbuttonClicked={eachEvent.id === activeEventId} // Check if the event is clicked
+              />
             ))}
           </ul>
         </div>
-        <div className="registrationStatusContainer"></div>
+        <div className="registrationStatusContainer">
+          <ActiveEventRegistrationDetails
+            registrationStatus={activeEventStatus}
+          />
+        </div>
       </div>
     )
   }

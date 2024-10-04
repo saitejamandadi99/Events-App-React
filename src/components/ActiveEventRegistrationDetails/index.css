@@ -1,1 +1,21 @@
 /* Write your CSS here */
+.registrationStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.registrationImage {
+  height: 150px;
+  background-size: cover;
+  width: 80px;
+}
+.RegisterButton {
+  width: auto;
+  outline: none;
+  cursor: pointer;
+  border: 0px;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}

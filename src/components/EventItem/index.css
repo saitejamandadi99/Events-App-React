@@ -22,3 +22,12 @@
   font-family: Roboto;
   color: white;
 }
+.button {
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+  cursor: pointer;
+}
+.clicked {
+  border: 2px solid greenyellow;
+}
