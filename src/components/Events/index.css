@@ -1,0 +1,27 @@
+/* Write your CSS here */
+.eventsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.eventsCardsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+  background-color: #64748b;
+  padding: 20px;
+  font-family: Roboto;
+}
+.eventHeading {
+  font-size: 40px;
+  color: white;
+  font-weight: 400;
+}
+.eventItemListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  list-style: none;
+  flex-direction: row;
+}
